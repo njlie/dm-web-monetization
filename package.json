@@ -1,0 +1,24 @@
+{
+  "name": "dm-web-monetization",
+  "version": "1.0.0",
+  "description": "Monetize your deathmatch games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njlie/dm-web-monetization.git"
+  },
+  "author": "Nathan Lie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njlie/dm-web-monetization/issues"
+  },
+  "homepage": "https://github.com/njlie/dm-web-monetization#readme",
+  "dependencies": {
+    "ilp-plugin": "^3.1.0",
+    "ilp-protocol-spsp": "^2.0.0",
+    "koa-web-monetization": "^1.0.2"
+  }
+}
