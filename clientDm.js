@@ -14,4 +14,3 @@ function getMonetizationId (receiverUrl, clientId) {
     }
   })
 }
-

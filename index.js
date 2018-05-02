@@ -3,13 +3,13 @@ const plugin = require('ilp-plugin')()
 const SPSP = require('ilp-protocol-spsp')
 
 class WebMonetizationDM extends WebMonetization {
-  constructor() {
+  constructor () {
     super()
 
     this.pointers = new Map()
   }
 
-  checkHeaders() {
+  checkHeaders () {
     return async (ctx, next) => {
       if (!ctx.headers.host.includes('localhost')) {
         return ctx.throw(400, 'Only requests from localhost are allowed.')
@@ -18,7 +18,7 @@ class WebMonetizationDM extends WebMonetization {
     }
   }
 
-  addPointer() {
+  addPointer () {
     return async (ctx, next) => {
       console.log('adding spsp pointer')
       console.log('ip=', ctx.params.id, ' pointer=', ctx.params.pointer)
@@ -37,11 +37,10 @@ class WebMonetizationDM extends WebMonetization {
       }
 
       return next()
-
     }
   }
 
-  spawnPlayer({price}) {
+  spawnPlayer ({price}) {
     return async (ctx, next) => {
       console.log('spawnplayer called')
       const id = ctx.params.id
@@ -53,7 +52,6 @@ class WebMonetizationDM extends WebMonetization {
       const _price = (typeof price === 'function')
         ? Number(price(ctx))
         : Number(price)
-    
 
       const hasBucket = this.buckets.get(id) || -1
       if (hasBucket === -1) {
@@ -69,7 +67,6 @@ class WebMonetizationDM extends WebMonetization {
 
       try {
         this.spend(id, _price)
-        return next()
       } catch (e) {
         console.log('spawnPlayer ERROR: ', e.message)
         return ctx.throw(402, e.message)
@@ -116,7 +113,7 @@ class WebMonetizationDM extends WebMonetization {
     return async (ctx, next) => {
       console.log('disconnecting player')
       const id = ctx.params.id
-      const balance = this.buckets.get(id) || 0
+      this.buckets.set(id, 0)
     }
   }
 }
