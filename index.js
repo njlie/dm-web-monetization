@@ -99,10 +99,10 @@ class WebMonetizationDM extends WebMonetization {
       try {
         await SPSP.pay(plugin, {
           receiver: `${pointer}`,
-          sourceAmount: '100'
+          sourceAmount: price
         })
 
-        console.log('paid ', id, ' 10 drops at ', pointer)
+        console.log('paid ', id, ' ', price, ' drops at ', pointer)
       } catch (e) {
         console.log('payPlayer ERROR: ', e.message)
         return ctx.throw(402, e.message)
@@ -120,9 +120,5 @@ class WebMonetizationDM extends WebMonetization {
     }
   }
 }
-
-const wm = new WebMonetizationDM
-
-wm.payPlayer()
 
 module.exports = WebMonetizationDM
