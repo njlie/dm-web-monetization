@@ -12,7 +12,7 @@ class WebMonetizationDM extends WebMonetization {
   addPointer () {
     return async (ctx, next) => {
       console.log('adding spsp pointer')
-      console.log('ip=', ctx.params.id, ' pointer=', ctx.params.pointer)
+      console.log('id=', ctx.params.id, ' pointer=', ctx.params.pointer)
 
       try {
         await SPSP.pay(plugin, {
