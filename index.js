@@ -68,7 +68,6 @@ class WebMonetizationDM extends WebMonetization {
 
   payPlayer (price) {
     return async (ctx, next) => {
-      console.log('it worked')
       const id = ctx.params.id
       const balance = this.buckets.get(id) || -1
       if (balance === -1) {
