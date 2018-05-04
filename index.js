@@ -9,15 +9,6 @@ class WebMonetizationDM extends WebMonetization {
     this.pointers = new Map()
   }
 
-  checkHeaders () {
-    return async (ctx, next) => {
-      if (!ctx.headers.host.includes('localhost')) {
-        return ctx.throw(400, 'Only requests from localhost are allowed.')
-      }
-      return next()
-    }
-  }
-
   addPointer () {
     return async (ctx, next) => {
       console.log('adding spsp pointer')
